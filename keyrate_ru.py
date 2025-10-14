@@ -1,19 +1,17 @@
-TELEGRAM_CHATID = 0
-TELEGRAM_TOKEN = ""
-
 import requests
+from os import getenv
+from python_dotenv import load_dotenv
 from bs4 import BeautifulSoup
 from datetime import datetime
 
 
 def send_message(text: str):
-    url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
+    url = f"https://api.telegram.org/bot{getenv('TELEGRAM_TOKEN')}/sendMessage"
     data = {
-        "chat_id": TELEGRAM_CHATID,
+        "chat_id": getenv("TELEGRAM_USERID"),
         "text": text
     }
     requests.post(url, json=data)
-    
 
 cbr_resp = requests.get("https://www.cbr.ru/hd_base/keyrate/")
 if(cbr_resp.status_code != 200):
