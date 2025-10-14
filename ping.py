@@ -3,9 +3,9 @@ ADDRESSES = [('8.8.8.8', 53, "Google DNS")]
 from tcppinglib import tcpping
 import requests
 import os
-import python_dotenv
+import dotenv
 
-python_dotenv.load_dotenv()
+dotenv.load_dotenv()
 
 for addr in ADDRESSES:
   host = tcpping(addr[0], addr[1], 2, 4, 1)

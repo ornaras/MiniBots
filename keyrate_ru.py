@@ -1,6 +1,6 @@
 import requests
 from os import getenv
-from python_dotenv import load_dotenv
+from dotenv import load_dotenv
 from bs4 import BeautifulSoup
 from datetime import datetime
 
