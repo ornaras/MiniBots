@@ -5,6 +5,8 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 
 
+load_dotenv()
+
 def send_message(text: str):
     url = f"https://api.telegram.org/bot{getenv('TELEGRAM_TOKEN')}/sendMessage"
     data = {
